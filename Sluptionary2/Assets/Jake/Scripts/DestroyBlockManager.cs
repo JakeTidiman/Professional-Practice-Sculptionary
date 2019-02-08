@@ -6,6 +6,8 @@ public class DestroyBlockManager : MonoBehaviour
 {
     private GameObject destroyTarget;
 
+    private Material hitMat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,8 @@ public class DestroyBlockManager : MonoBehaviour
             {
                 print(hit.collider.name);
                 destroyTarget = hit.collider.gameObject;
-               // hit.collider.GetComponent<Material>()
+                hitMat = hit.collider.gameObject.GetComponent<Material>();
+                hitMat.color = new Color(0, 215, 255);
             }               
         }
 
