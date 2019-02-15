@@ -5,10 +5,12 @@ using UnityEngine;
 public class DestroyBlockManager : MonoBehaviour
 {
     private GameObject destroyTarget;
-
-    private Material hitMat;
-
+    private GameObject currentMarker;
      
+    public List<GameObject> hitBlocks = new List<GameObject>();
+
+    
+    public RaycastHit hit;
 
     // Start is called before the first frame update
     void Start()
@@ -26,16 +28,18 @@ public class DestroyBlockManager : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray,out hit, 100))
             {
+                hitBlocks.Add(hit.collider.gameObject);
+
                 print(hit.collider.name);
                 destroyTarget = hit.collider.gameObject;
-                hitMat = hit.collider.gameObject.GetComponent<Material>();
-                hitMat.color = new Color(0, 215, 255);
-            }               
+
+                hit.collider.GetComponent<BlockHolder>().ChangeColour();
+            } 
+
         }
 
         if (Input.GetButtonUp("Fire1"))

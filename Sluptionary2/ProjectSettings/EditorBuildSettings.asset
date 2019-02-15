@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Jake/Scenes/JakeScene.unity
+    guid: f395f6a58031c5d4687057cadd5b1d30
   m_configObjects: {}

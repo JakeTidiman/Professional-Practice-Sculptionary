@@ -241,7 +241,7 @@ PlayerSettings:
   AndroidKeystoreName: C:/Users/u1707332/OneDrive - University of East London/u1707332/GitHub/Professional-Practice-Sculptionary/Sluptionary2/user.keystore
   AndroidKeyaliasName: sculptionary_key
   AndroidBuildApkPerCpuArchitecture: 0
-  AndroidTVCompatibility: 1
+  AndroidTVCompatibility: 0
   AndroidIsGame: 1
   AndroidEnableTango: 0
   androidEnableBanner: 1
