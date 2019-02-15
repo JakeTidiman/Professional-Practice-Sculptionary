@@ -33,18 +33,32 @@ public class DestroyBlockManager : MonoBehaviour
             if (Physics.Raycast(ray,out hit, 100))
             {
                 hitBlocks.Add(hit.collider.gameObject);
-
-                print(hit.collider.name);
+               
                 destroyTarget = hit.collider.gameObject;
 
-                hit.collider.GetComponent<BlockHolder>().ChangeColour();
+                destroyTarget.GetComponent<BlockHolder>().ChangeColour();
+               
             } 
 
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
+            StartCoroutine(DoColorRevert());
             Destroy(destroyTarget);
         }
     }
+
+    IEnumerator DoColorRevert()
+    {
+        for (int i = 0; i < hitBlocks.Count; i++)
+        {
+            hitBlocks[i].GetComponent<BlockHolder>().RevertColour();
+            //hitBlocks.Remove(hitBlocks[i]);
+            hitBlocks[i] = null;
+        }
+        yield return new WaitForSeconds(0.2f);
+        hitBlocks = new List<GameObject>();
+    }
+
 }
