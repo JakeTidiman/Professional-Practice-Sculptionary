@@ -36,8 +36,7 @@ public class DestroyBlockManager : MonoBehaviour
                
                 destroyTarget = hit.collider.gameObject;
 
-                destroyTarget.GetComponent<BlockHolder>().ChangeColour();
-               
+                destroyTarget.GetComponent<BlockHolder>().ChangeColour();              
             } 
 
         }
