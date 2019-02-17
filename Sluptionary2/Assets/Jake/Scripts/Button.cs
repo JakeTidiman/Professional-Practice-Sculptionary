@@ -7,13 +7,19 @@ public class Button : MonoBehaviour
 {
     
 
-    public GameObject currentWindow;
+    public GameObject[] currentWindow;
 
-    public GameObject windowToOpen;
+    public GameObject[] windowToOpen;
 
     public bool ifTeamSelect;
 
     public bool catagorySelect;
+
+    public bool ifStartRound;
+
+    public bool ifWin;
+
+    public bool ifContinueTimer;
 
     public enum Catagories
     {
@@ -41,18 +47,24 @@ public class Button : MonoBehaviour
 
     public void ChangeCanvasWindow()
     {
-        if (windowToOpen != null)
+        /*if (windowToOpen != null)
         {
-            windowToOpen.SetActive(true);
+            foreach (var item in windowToOpen)
+            {
+                item.SetActive(true);
+            }
+            
         }
         if (currentWindow != null)
         {
-            currentWindow.SetActive(false);
-        }
+            foreach (var item in currentWindow)
+            {
+                item.SetActive(false);
+            }
+        }*/
 
         if (ifTeamSelect)
         {
-
             switch (GM.theTeams.Count)
             {
                 case 0:
@@ -94,5 +106,24 @@ public class Button : MonoBehaviour
                     break;
             }
         }
+
+        if (ifStartRound)
+        {
+            GM.currentTeam = GM.restartTeams;
+            GM.scoreTimer = GM.resetScoreTimer; 
+        }
+        if (ifWin)
+        {
+            GM.PlayRound();
+            GM.restartTeams++;
+        }
+        if (ifContinueTimer)
+        {
+            Time.timeScale = 1;
+        }
+
     }
+
+
+    
 }
