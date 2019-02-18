@@ -21,6 +21,11 @@ public class Button : MonoBehaviour
 
     public bool ifContinueTimer;
 
+    [Header("only fill if catagory start")]
+    public GameObject blocks;
+    private GameObject instantiatedBlocks;
+    public GameObject aRTarget;
+
     public enum Catagories
     {
         catagoryOne,
@@ -70,18 +75,22 @@ public class Button : MonoBehaviour
                 case 0:
                     GM.theTeams.Add(GM.currentTeam++);
                     GM.numberOfTeams++;
+                    
                     break;
                 case 1:
                     GM.theTeams.Add(GM.currentTeam++);
                     GM.numberOfTeams++;
+                
                     break;
                 case 2:
                     GM.theTeams.Add(GM.currentTeam++);
                     GM.numberOfTeams++;
+                    
                     break;
                 case 3:
                     GM.theTeams.Add(GM.currentTeam++);
                     GM.numberOfTeams++;
+                    
                     break;
             }
         }
@@ -112,10 +121,11 @@ public class Button : MonoBehaviour
             GM.currentTeam = GM.restartTeams;
             GM.scoreTimer = GM.resetScoreTimer;
             GM.playingTeam++;
+            instantiatedBlocks = Instantiate(blocks, aRTarget.transform.position + transform.TransformDirection(Vector3.up * 15), aRTarget.transform.rotation);
         }
         if (ifWin)
         {
-            // GM.EndOfRound();
+            Destroy(instantiatedBlocks);
             GM.PlayRound();
         }
         if (ifContinueTimer)

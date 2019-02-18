@@ -32,7 +32,11 @@ public class DestroyBlockManager : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray,out hit, 100))
             {
-                hitBlocks.Add(hit.collider.gameObject);
+                if (hit.collider.gameObject != hitBlocks.Contains(hit.collider.gameObject))
+                {
+                    hitBlocks.Add(hit.collider.gameObject);
+                }
+                
                
                 destroyTarget = hit.collider.gameObject;
 

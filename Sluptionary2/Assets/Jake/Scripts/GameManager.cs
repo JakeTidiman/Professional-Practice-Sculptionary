@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
     public float resetScoreTimer;
     public float[] scoreBreakPoints;
 
+    public GameObject blocks;
+    public GameObject aRTarget;
+
     public enum Teams
     {
         teamOne,
@@ -103,8 +106,15 @@ public class GameManager : MonoBehaviour
         }
         if (cureentRound == 2)
         {
-            winningScoreText.text = Mathf.Max(score1, score2, score3, score4).ToString();
+            winningScoreText.enabled = true;
+            winningScoreText.text = "Winner! " + Mathf.Max(score1, score2, score3, score4).ToString();
         }
+        else
+        {
+            winningScoreText.enabled = false;
+        }
+        
+        
 
         score1Text.text = "Team One: " + score1.ToString();
         score2Text.text = "Team Two: " + score2.ToString();
@@ -128,23 +138,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void EndOfRound()
-    {
-        if (playingTeam == numberOfTeams)
-        {
-            cureentRound++;
-            currentTeam = Teams.teamOne;
-            playingTeam = 0;
-            restartTeams = 0;
-        }
-        else
-        {
-            restartTeams++;
-        }
-        if (cureentRound == 2)
-        {
-            winningScoreText.text = Mathf.Max(score1, score2, score3, score4).ToString();
-        }
-    }
+
 
 }
