@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
 
     public int numberOfTeams;
 
-    public int PlayingTeam;
+    public int playingTeam;
+
+    public int cureentRound;
 
     public string[] catagoryOne;
     public string[] catagoryTwo;
@@ -26,6 +28,8 @@ public class GameManager : MonoBehaviour
     public Text score2Text;
     public Text score3Text;
     public Text score4Text;
+
+    public Text winningScoreText;
 
     public Text catagoryText;
     public Text timerText;
@@ -66,20 +70,40 @@ public class GameManager : MonoBehaviour
         {
             case Teams.teamOne:
                 //CalculateScore();
-                score1 = Mathf.RoundToInt(scoreTimer) / 2;
+                score1 += Mathf.RoundToInt(scoreTimer) / 2;
+               // playingTeam = 0;
                 break;
             case Teams.teamTwo:
                // CalculateScore();
-                score2 = Mathf.RoundToInt(scoreTimer) / 2;
+                score2 += Mathf.RoundToInt(scoreTimer) / 2;
+               // playingTeam = 1;
                 break;
             case Teams.teamThree:
                 //CalculateScore();
-                score3 = Mathf.RoundToInt(scoreTimer) / 2;
+                score3 += Mathf.RoundToInt(scoreTimer) / 2;
+               // playingTeam = 2;
                 break;
             case Teams.teamFour:
                 //CalculateScore();
-                score4 = Mathf.RoundToInt(scoreTimer) / 2;
+                score4 += Mathf.RoundToInt(scoreTimer) / 2;
+               // playingTeam = 3;
                 break;
+        }
+
+        if (playingTeam == numberOfTeams)
+        {
+            cureentRound++;
+            currentTeam = Teams.teamOne;
+            playingTeam = 0;
+            restartTeams = 0;
+        }
+        else
+        {
+            restartTeams++;
+        }
+        if (cureentRound == 2)
+        {
+            winningScoreText.text = Mathf.Max(score1, score2, score3, score4).ToString();
         }
 
         score1Text.text = "Team One: " + score1.ToString();
@@ -102,6 +126,25 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void EndOfRound()
+    {
+        if (playingTeam == numberOfTeams)
+        {
+            cureentRound++;
+            currentTeam = Teams.teamOne;
+            playingTeam = 0;
+            restartTeams = 0;
+        }
+        else
+        {
+            restartTeams++;
+        }
+        if (cureentRound == 2)
+        {
+            winningScoreText.text = Mathf.Max(score1, score2, score3, score4).ToString();
+        }
     }
 
 }

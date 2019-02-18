@@ -780,12 +780,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e98064fbcff3cf4f83a827b49b0cdeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWindow: []
+  currentWindow:
+  - {fileID: 273114814}
   windowToOpen:
   - {fileID: 288600922}
   ifTeamSelect: 0
   catagorySelect: 0
-  ifStartRound: 0
+  ifStartRound: 1
   ifWin: 0
   ifContinueTimer: 0
   catagory: 0
@@ -1455,6 +1456,7 @@ RectTransform:
   - {fileID: 33484879}
   - {fileID: 1707093569}
   - {fileID: 165794455}
+  - {fileID: 1841720617}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1983,7 +1985,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theTeams: 
   numberOfTeams: 0
-  PlayingTeam: 0
+  playingTeam: 0
+  cureentRound: 0
   catagoryOne:
   - fish
   - dog
@@ -2014,6 +2017,7 @@ MonoBehaviour:
   score2Text: {fileID: 45440203}
   score3Text: {fileID: 33484880}
   score4Text: {fileID: 1707093570}
+  winningScoreText: {fileID: 1841720618}
   catagoryText: {fileID: 160408399}
   timerText: {fileID: 188449721}
   retryButton: {fileID: 612048298}
@@ -5487,6 +5491,85 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1841720616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1841720617}
+  - component: {fileID: 1841720619}
+  - component: {fileID: 1841720618}
+  m_Layer: 5
+  m_Name: WinningText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1841720617
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841720616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 273114818}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.090012, y: 137.4}
+  m_SizeDelta: {x: 256.12, y: 43.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1841720618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841720616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 41
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &1841720619
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841720616}
+  m_CullTransparentMesh: 0
 --- !u!1 &1974914411
 GameObject:
   m_ObjectHideFlags: 0

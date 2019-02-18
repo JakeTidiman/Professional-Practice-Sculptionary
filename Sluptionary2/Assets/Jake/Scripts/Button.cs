@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Button : MonoBehaviour
 {
-    
+
 
     public GameObject[] currentWindow;
 
@@ -47,13 +47,13 @@ public class Button : MonoBehaviour
 
     public void ChangeCanvasWindow()
     {
-        /*if (windowToOpen != null)
+        if (windowToOpen != null)
         {
             foreach (var item in windowToOpen)
             {
                 item.SetActive(true);
             }
-            
+
         }
         if (currentWindow != null)
         {
@@ -61,7 +61,7 @@ public class Button : MonoBehaviour
             {
                 item.SetActive(false);
             }
-        }*/
+        }
 
         if (ifTeamSelect)
         {
@@ -83,7 +83,7 @@ public class Button : MonoBehaviour
                     GM.theTeams.Add(GM.currentTeam++);
                     GM.numberOfTeams++;
                     break;
-            }            
+            }
         }
 
         if (catagorySelect)
@@ -110,12 +110,13 @@ public class Button : MonoBehaviour
         if (ifStartRound)
         {
             GM.currentTeam = GM.restartTeams;
-            GM.scoreTimer = GM.resetScoreTimer; 
+            GM.scoreTimer = GM.resetScoreTimer;
+            GM.playingTeam++;
         }
         if (ifWin)
         {
+            // GM.EndOfRound();
             GM.PlayRound();
-            GM.restartTeams++;
         }
         if (ifContinueTimer)
         {
@@ -125,5 +126,5 @@ public class Button : MonoBehaviour
     }
 
 
-    
+
 }
