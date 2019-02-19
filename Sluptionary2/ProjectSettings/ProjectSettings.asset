@@ -150,7 +150,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.Company.Vuforia
   buildNumber: {}
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 26
   AndroidPreferredInstallLocation: 1
@@ -238,8 +238,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/u1707332/OneDrive - University of East London/u1707332/GitHub/Professional-Practice-Sculptionary/Sluptionary2/user.keystore
-  AndroidKeyaliasName: sculptionary_key
+  AndroidKeystoreName: D:/KEYS/SculptionaryKeyStore.keystore
+  AndroidKeyaliasName: sculptionary(home)
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
   AndroidIsGame: 1

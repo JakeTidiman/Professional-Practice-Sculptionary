@@ -23,7 +23,7 @@ public class Button : MonoBehaviour
 
     [Header("only fill if catagory start")]
     public GameObject blocks;
-    private GameObject instantiatedBlocks;
+    private static GameObject instantiatedBlocks;
     public GameObject aRTarget;
 
     public enum Catagories
