@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public Text score4Text;
 
     public Text winningScoreText;
+    public GameObject backToMainMenu;
 
     public Text catagoryText;
     public Text timerText;
@@ -106,11 +107,13 @@ public class GameManager : MonoBehaviour
         }
         if (cureentRound == 2)
         {
+            backToMainMenu.SetActive(true);
             winningScoreText.enabled = true;
             winningScoreText.text = "Winner! " + Mathf.Max(score1, score2, score3, score4).ToString();
         }
         else
         {
+            backToMainMenu.SetActive(false);
             winningScoreText.enabled = false;
         }
         

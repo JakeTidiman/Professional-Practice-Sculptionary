@@ -26,6 +26,8 @@ public class Button : MonoBehaviour
     private static GameObject instantiatedBlocks;
     public GameObject aRTarget;
 
+    public bool ifResetRounds;
+
     public enum Catagories
     {
         catagoryOne,
@@ -100,16 +102,16 @@ public class Button : MonoBehaviour
             switch (catagory)
             {
                 case Catagories.catagoryOne:
-                    GM.catagoryText.text = GM.catagoryOne[Random.Range(0, GM.catagoryOne.Length)];
+                    GM.catagoryText.text = GM.catagoryOne[Random.Range(0, GM.catagoryOne.Length-1)];
                     break;
                 case Catagories.catagoryTwo:
-                    GM.catagoryText.text = GM.catagoryTwo[Random.Range(0, GM.catagoryOne.Length)];
+                    GM.catagoryText.text = GM.catagoryTwo[Random.Range(0, GM.catagoryOne.Length-1)];
                     break;
                 case Catagories.catagoryThree:
-                    GM.catagoryText.text = GM.catagoryThree[Random.Range(0, GM.catagoryOne.Length)];
+                    GM.catagoryText.text = GM.catagoryThree[Random.Range(0, GM.catagoryOne.Length-1)];
                     break;
                 case Catagories.catagoryFour:
-                    GM.catagoryText.text = GM.catagoryFour[Random.Range(0, GM.catagoryOne.Length)];
+                    GM.catagoryText.text = GM.catagoryFour[Random.Range(0, GM.catagoryOne.Length-1)];
                     break;
                 default:
                     break;
@@ -131,6 +133,11 @@ public class Button : MonoBehaviour
         if (ifContinueTimer)
         {
             Time.timeScale = 1;
+        }
+
+        if (ifResetRounds)
+        {
+            GM.cureentRound = 0;
         }
 
     }
